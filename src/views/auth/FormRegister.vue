@@ -88,10 +88,10 @@ const onSubmit = handleSubmit((values) => {
     height: 100vh;
 
     .form-auth {
-      width: 360px;
+      width: 100%;
       background: var(--clr-white);
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       //padding: 2rem;
@@ -99,6 +99,12 @@ const onSubmit = handleSubmit((values) => {
       flex-direction: column;
       gap: 1rem;
       padding: 24px;
+
+      @media screen and (min-width: 380px) {
+        width: 360px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
 
       .container-logo {
         //background: var(--clr-primary-5);

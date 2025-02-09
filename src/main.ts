@@ -16,9 +16,9 @@ const app = createApp(App)
 
 // icons
 import { OhVueIcon, addIcons } from "oh-vue-icons";
-import { HiSolidDownload, HiLogout } from "oh-vue-icons/icons";
+import { HiSolidDownload, HiLogout, HiRefresh, BiPlusCircle } from "oh-vue-icons/icons";
 
-addIcons(HiSolidDownload, HiLogout);
+addIcons(HiSolidDownload, HiLogout, HiRefresh, BiPlusCircle);
 
 app.component("v-icon", OhVueIcon);
 

@@ -4,9 +4,7 @@ import { onMounted, ref } from 'vue'
 import { dateText } from '@/helpers/date.ts'
 import ReportAdd from '@/views/report/components/ReportAdd.vue'
 import { useAuthStore } from '@/stores/storeAuth.ts'
-// import OhVueIcon from "oh-vue-icons";
 const storeReport = useReportStore()
-const storeAuth = useAuthStore()
 
 onMounted(() => {
   storeReport.getReports()
@@ -19,12 +17,13 @@ onMounted(() => {
   <div>
 
     <div class="section section-center">
-    <div class="flex flex-column align-center justify-center">
-      <h3 class="section-title">Generador de reportes TK</h3>
-      <button class="btn btn-secondary mb-8" @click="storeReport.getReports()">
-        Refrezcar
-      </button>
-    </div>
+      <div class="flex flex-column align-center justify-center">
+        <h3 class="section-title">Generador de reportes TK</h3>
+        <button class="btn btn-secondary mb-8" @click="storeReport.getReports()">
+          Refrezcar
+          <v-icon name="hi-refresh"></v-icon>
+        </button>
+      </div>
       <div class="table-container">
         <table class="custom-table">
           <thead>
@@ -61,6 +60,7 @@ onMounted(() => {
     <div class="section section-center container-generate-report">
       <button class="btn btn-secondary " @click="storeReport.openModalAddReport()">Generar
         reporte
+        <v-icon name="bi-plus-circle"></v-icon>
       </button>
     </div>
 

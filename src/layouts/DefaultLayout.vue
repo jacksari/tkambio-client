@@ -13,7 +13,10 @@ const storeAuth = useAuthStore()
       <nav class="">
         <div class="section-center">
 
-          <span></span>
+          <div class="data-user">
+            <p>{{ storeAuth.auth.user.name }}</p>
+            <small>{{storeAuth.auth.user.email}}</small>
+          </div>
           <img src="/images/logo-completed.png" alt="Logo" />
           <button class="btn btn-error " @click="storeAuth.logout()">
             <v-icon name="hi-logout"></v-icon>
@@ -58,6 +61,19 @@ nav {
       height: 56px;
       width: 200px;
       object-fit: contain;
+    }
+    .data-user{
+      display: flex;
+      flex-direction: column;
+      gap: 0rem;
+      p{
+        margin-bottom: 0;
+        color: var(--clr-primary-1);
+      }
+      small{
+        margin-bottom: 0;
+        color: var(--clr-primary-1);
+      }
     }
   }
 }
