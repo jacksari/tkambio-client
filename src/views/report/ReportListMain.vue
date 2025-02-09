@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useReportStore } from '@/stores/storeReport.ts'
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import { dateText } from '@/helpers/date.ts'
 import ReportAdd from '@/views/report/components/ReportAdd.vue'
 
@@ -9,7 +9,6 @@ const storeReport = useReportStore()
 onMounted(() => {
   storeReport.getReports()
 })
-
 
 </script>
 
@@ -74,7 +73,7 @@ onMounted(() => {
   width: 100%;
   display: flex;
   justify-content: center;
-  overflow-x: auto; // Permite scroll horizontal en pantallas pequeñas
+  overflow-x: auto;
 }
 
 .custom-table {
@@ -86,7 +85,7 @@ onMounted(() => {
   border-radius: 8px;
   overflow: hidden;
   text-align: left;
-  min-width: 500px; // Asegura que la tabla no se colapse demasiado
+  min-width: 500px;
 
   thead {
     background: #3b5bdb;
@@ -126,7 +125,6 @@ onMounted(() => {
   }
 }
 
-// Estilos responsivos
 @media (max-width: 768px) {
   .custom-table {
     max-width: 100%;
@@ -138,7 +136,7 @@ onMounted(() => {
   }
 
   .custom-table thead {
-    display: none; // Oculta el encabezado en móviles
+    display: none;
   }
 
   .custom-table tbody tr {
