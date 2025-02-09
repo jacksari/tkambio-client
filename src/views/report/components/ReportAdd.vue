@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import Modal from '@/components/Modal.vue'
-import VCalendar, { DatePicker as VDatePicker } from 'v-calendar'
 import InputCalendar from '@/components/InputCalendar.vue'
 import { useReportStore } from '@/stores/storeReport.ts'
 
@@ -22,21 +21,9 @@ const showModal = computed({
 
 const storeReport = useReportStore()
 
-const startDate = ref<Date | null>(null)
-const endDate = ref<Date | null>(null)
-
 const closeModal = () => {
   showModal.value = false;
   storeReport.clearFormAddReport()
-}
-
-const onSubmit = async () => {
-  // const isValid = await refFormRegisterVacantSchool.value?.validate();
-  //
-  // if (!isValid?.valid) return;
-  // storeBot.storeBot(() => {
-  //   closeModal();
-  // });
 }
 
 watch(() => props.modelValue, () => {

@@ -1,11 +1,5 @@
-// import useToast from "@/composables/useToast";
-// import type {
-//   IResponseProfile,
-//   IResponseRegister,
-//   StoreAuth,
-// } from "@/interfaces/auth";
 import { defineStore } from 'pinia'
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import type { IReportList } from '@/interfaces/reports.ts'
 import reportService from '@/services/reportService.ts'
 import { dateToApi } from '@/helpers/date.ts'
@@ -70,8 +64,8 @@ export const useReportStore = defineStore('reports', () => {
 
   return {
     reports,
-    getReports,
     modalAddReport,
+    getReports,
     openModalAddReport,
     generateReport,
     getReportById,

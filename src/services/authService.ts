@@ -1,6 +1,5 @@
 
 import type { IResponseLogin, IResponseProfile, IResponseRegister } from '@/interfaces/auth'
-// import {IResponseLogin, IResponseProfile, IResponseRegister} from "@/interfaces/auth";
 import { useApi } from '@/composables/useApi.ts'
 
 const url = "/api/auth";
@@ -17,7 +16,6 @@ class AuthService {
         password,
       }),
     });
-    // const json = await data.json();
     console.log('data', resp);
 
     return resp;

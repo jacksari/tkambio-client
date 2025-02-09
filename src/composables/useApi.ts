@@ -3,7 +3,6 @@ import { defu } from "defu";
 import {useAuthStore} from "@/stores/storeAuth";
 import { useCookie } from '@/composables/useCookie.ts'
 import { useRouter } from 'vue-router'
-import * as process from 'node:process'
 
 export const useApi = async <T>(
   url: string,
@@ -13,10 +12,8 @@ export const useApi = async <T>(
   message: string;
   data: T | null;
 }> => {
-  // const config = useRuntimeConfig();
   // const { toggle } = useToast();
   const { logout, clearUser, auth } = useAuthStore()
-  // const { isPreloading } = useLoading();
   const accessToken = useCookie("accessToken");
   const router = useRouter();
 

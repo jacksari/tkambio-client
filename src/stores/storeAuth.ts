@@ -1,17 +1,9 @@
-// import useToast from "@/composables/useToast";
-// import type {
-//   IResponseProfile,
-//   IResponseRegister,
-//   StoreAuth,
-// } from "@/interfaces/auth";
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import authService from '@/services/authService'
 import { useRouter } from 'vue-router'
 import { useCookie } from '@/composables/useCookie.ts'
 import type {
-  IResponseProfile,
-  IResponseRegister,
   StoreAuth
 } from '@/interfaces/auth.ts'
 

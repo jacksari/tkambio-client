@@ -28,7 +28,6 @@ const closeModal = () => {
 </script>
 
 <style scoped>
-/* Fondo oscuro con fade-in */
 .fade-enter-active, .fade-leave-active {
   transition: opacity 0.3s ease;
 }
@@ -36,7 +35,6 @@ const closeModal = () => {
   opacity: 0;
 }
 
-/* Animación de entrada/salida del modal */
 .slide-enter-active, .slide-leave-active {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -49,7 +47,6 @@ const closeModal = () => {
   opacity: 0;
 }
 
-/* Estilos generales */
 .modal-overlay {
   position: fixed;
   top: 0;

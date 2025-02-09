@@ -16,18 +16,15 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emits = defineEmits(["update:modelValue"]);
 
-// Variable reactiva para la fecha seleccionada
 const date = computed({
   get: () => props.modelValue,
   set: (value) => emits("update:modelValue", value),
 });
 
-// Formatear la fecha en dd/MM/yyyy
 const formattedDate = computed(() => {
   return date.value ? format(date.value, 'dd/MM/yyyy', { locale: es }) : '---';
 });
 
-// Controlar la visibilidad del DatePicker
 const showDatePicker = ref(false);
 
 const openDatePicker = () => {
