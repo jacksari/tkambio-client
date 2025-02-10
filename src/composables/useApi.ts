@@ -1,4 +1,3 @@
-// import { useAuthStore } from "@/stores/common/storeAuth";
 import { defu } from "defu";
 import {useAuthStore} from "@/stores/storeAuth";
 import { useCookie } from '@/composables/useCookie.ts'
@@ -12,10 +11,9 @@ export const useApi = async <T>(
   message: string;
   data: T | null;
 }> => {
-  // const { toggle } = useToast();
   const { logout, clearUser, auth } = useAuthStore()
   const accessToken = useCookie("accessToken");
-  const router = useRouter();
+  const router = useRouter()
 
   const defaultOptions: RequestInit = {
     method: "GET",
@@ -34,6 +32,7 @@ export const useApi = async <T>(
     if (!response.ok) {
       const errorData = await response.json();
       const message = errorData.message || "Error desconocido";
+      console.log('response.status', response.status)
 
       // Manejar errores comunes
       if ([400, 402, 404].includes(response.status)) {
@@ -48,7 +47,6 @@ export const useApi = async <T>(
       if ([401].includes(response.status)) {
         // toggle(message, ToastType.ERROR);
         await logout();
-        router.push("/login");
         return {
           status: false,
           message: message,
@@ -59,13 +57,8 @@ export const useApi = async <T>(
 
       if ([403].includes(response.status)) {
 
-        if(auth.authenticated) {
-          // toggle(message, ToastType.ERROR);
-          router.push("/forbidden");
-        } else {
-          // toggle("No tienes permisos para acceder a esta ruta", ToastType.ERROR);
-          await logout();
-        }
+        await logout();
+
         return {
           status: false,
           message: "No tienes permisos para acceder a esta ruta",

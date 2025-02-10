@@ -7,10 +7,6 @@ import type {
   StoreAuth
 } from '@/interfaces/auth.ts'
 
-// const { toggle } = useToast();
-// const { showConfirmSwal } = useSwal();
-// const { isPreloading } = useLoading();
-
 export const useAuthStore = defineStore('authentication', () => {
 
   const router = useRouter()
@@ -29,25 +25,19 @@ export const useAuthStore = defineStore('authentication', () => {
 
   const login = async () => {
 
-    const router = useRouter()
-
-    // isPreloading();
     const resp = await authService.login(
       userLogin.value.email,
       userLogin.value.password
     )
-    // isPreloading(false);
 
     if (resp?.status) {
       useCookie('accessToken').value = resp.data.access_token
       auth.value.token = resp.data.access_token
       auth.value.authenticated = true;
       auth.value.user = resp.data.user;
-      // toggle(resp.message);
 
       clearFormLogin()
 
-      // await getUserByToken()
 
       await redirectDashboard()
 
@@ -65,9 +55,7 @@ export const useAuthStore = defineStore('authentication', () => {
 
     if (!token) return
 
-    // isPreloading();
     const resp = await authService.profile()
-    // isPreloading(false);
 
     if (resp?.status) {
       auth.value.user = resp.data
